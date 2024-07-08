@@ -59,7 +59,7 @@ app.use(bodyParser.json());
 //   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 // });
 app.use(cors({
-   origin: 'http://localhost:5173', // Replace with your frontend's origin
+   origin: 'http://localhost:5173', 
    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
    credentials: true,
    allowedHeaders: ['Content-Type', 'Authorization'],
@@ -163,8 +163,8 @@ try{
  mongoose.connect(MONGO_URI)
 .then(()=>{
     console.log("connected");
-    app.listen(8080,()=>{
-        console.log("server started at 8080");
+    app.listen(8081,()=>{
+        console.log("server started at 8081");
     })
 })
 }catch(e){

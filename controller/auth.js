@@ -107,7 +107,7 @@ exports.resetPasswordRequest = async (req, res) => {
             return res.status(400).json({ message: "Email not registered" }); 
         }
         
-         const resetPass = "http://localhost:8080/resetpassword?token="+token+"&email="+email;
+         const resetPass = "/resetpassword?token="+token+"&email="+email;
          const subject = "Reset password for e-commerce";
          const html = `<p>Click <a href='${resetPass}'>here</a> to Reset Password</p>`;
          const text = "Reset Password of your account on E-Mart";

@@ -81,7 +81,7 @@ exports.paymentVerification=async(req,res)=>{
                 // console.log("temp: ",temp);
                 const user=await Users.findById(id);
         sendMail({to:user.email,html:invoiceTemplate(finalorder),subject:"Order-Summary",text:"Your resent order on E-mart"});
-                res.redirect('http://localhost:8080/temporder/'+temp.id);
+                res.redirect('/temporder/'+temp.id);
                }
         }
         else{
