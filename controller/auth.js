@@ -107,11 +107,11 @@ exports.resetPasswordRequest = async (req, res) => {
             return res.status(400).json({ message: "Email not registered" }); 
         }
         
-         const resetPass = "/resetpassword?token="+token+"&email="+email;
-         const subject = "Reset password for e-commerce";
-         const html = `<p>Click <a href='${resetPass}'>here</a> to Reset Password</p>`;
-         const text = "Reset Password of your account on E-Mart";
-         user.resetPasswordToken=token;
+        const resetPass = "/resetpassword?token="+token+"&email="+email;
+        const subject = "Reset password for e-commerce";
+        const html = `<p>Click <a href='${resetPass}'>here</a> to Reset Password</p>`;
+        const text = "Reset Password of your account on E-Mart";
+        user.resetPasswordToken=token;
          await user.save();
         // Check if email is provided
        
