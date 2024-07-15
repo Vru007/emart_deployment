@@ -51,7 +51,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).
@@ -154,8 +153,14 @@ app.use('/orders',isAuth(),orderRouter.router);
 app.use('/payment',isAuth(),paymentRouter.router);
 
 // Use CORS middleware with specified options
-app.get('*', (req, res) => {
+app.get('*', (req, res,next) => {
+
+  if(req.path.includes('.')){
+    next();
+  }
+  else{
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  } 
 });
 const MONGO_URI=process.env.MONGO_URI;
 
